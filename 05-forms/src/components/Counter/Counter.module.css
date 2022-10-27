@@ -1,0 +1,9 @@
+@value buttonfsz from 'shared/globalStyles.module.css';
+@value buttoncolor from 'shared/globalStyles.module.css';
+
+.button {
+        font-size: buttonfsz;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: buttoncolor;
+}
