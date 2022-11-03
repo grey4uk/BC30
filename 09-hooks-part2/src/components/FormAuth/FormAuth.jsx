@@ -43,7 +43,7 @@ const FormAuth = () => {
   );
 
   //   const [user, setUser] = useState(initialState);
-  const { email, name } = user;
+  const { email, name, password } = user;
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -51,20 +51,17 @@ const FormAuth = () => {
     dispatch({ type: name, payload: value });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-
-    Promise.resolve()
-      .then(() => dispatch({ type: ACTION_TYPES.password }))
-      .then(() => console.log('user', user))
-      .then(() => dispatch({ type: ACTION_TYPES.reset }));
+    dispatch({ type: ACTION_TYPES.password });
 
     //     setUser(initialState);
   };
 
   useEffect(() => {
-    console.log('user', user);
-  }, [user]);
+    password && console.log('password', password);
+    dispatch({ type: ACTION_TYPES.reset });
+  }, [password]);
 
   return (
     <form onSubmit={onSubmit}>
