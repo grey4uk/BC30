@@ -112,9 +112,21 @@ const ItemsList = () => {
   //componentWillUnmount
   // useEffect(() => {
   //   first
-  // s
-  // }, [second])
+  // return ()=>{}
+  // }, [])
   // console.log('re-render', inputRef);
+  // const [third,setThird]=useState(null)
+
+  //   useEffect(() => {
+  //     third!==null&&first('change third')
+
+  //     return () => {
+  //       second
+  //     }
+  //   }, [third])
+
+  //   third?.length
+
   return (
     <>
       <Form onSubmit={handleSubmitInput}>
