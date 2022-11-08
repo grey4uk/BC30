@@ -1,5 +1,5 @@
-import { usePokemonsApi } from 'hooks/useApi';
-import { Fragment, useEffect } from 'react';
+import { usePokemonsApi } from 'hooks/usePokemonsApi';
+import { Fragment } from 'react';
 import {
   Link,
   useLocation,
@@ -12,18 +12,18 @@ const OnePokemon = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
-  console.log('name :>> ', name);
-  usePokemonsApi(name).then(console.log);
+  const res = usePokemonsApi(name);
+  const image = res?.sprites?.front_default;
 
-  // const name = location.state?.name;
+  //   const name = location.state?.name;
   const from = location.state?.from ?? '/gallery/list';
 
   // console.log('location', location);
-  console.log('One Pokemon');
+
   return (
     <Fragment>
       <h3>This is {name}</h3>
-      <img src={null} alt={''} width='400' />
+      <img src={image} alt={name} width='200' />
       <Link to={from}>Close</Link>
     </Fragment>
   );

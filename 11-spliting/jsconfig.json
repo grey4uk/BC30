@@ -2,5 +2,5 @@
         "compilerOptions": {
           "baseUrl": "src"
         },
-        "include": ["src", "../11-spliting/src/hooks/useApi.js"]
+        "include": ["src"]
       }
