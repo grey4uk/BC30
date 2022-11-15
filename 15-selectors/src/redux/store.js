@@ -15,6 +15,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authSlice';
 import chatReducer from './chat/chatSlice';
+import counterReducer from './counter/counter';
 
 const persistConfig = {
   key: 'auth',
@@ -23,8 +24,6 @@ const persistConfig = {
 };
 
 const customMiddleware = (store) => (next) => (action) => {
-  console.log('store :>> ', store.getState());
-  console.log('action :>> ', action);
   const newAction =
     action.type === 'auth/google_auth/fulfilled'
       ? {
@@ -41,11 +40,11 @@ const customMiddleware = (store) => (next) => (action) => {
 const combinedReducer = combineReducers({
   auth: authReducer,
   chat: chatReducer,
+  counter: counterReducer,
 });
 
 const store = configureStore({
   reducer: persistReducer(persistConfig, combinedReducer),
-
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares({
       serializableCheck: { ignoreActions: true },
