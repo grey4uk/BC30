@@ -1,10 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const counterSelector = (state) => {
-  // console.log('--------------------------');
-  // console.log('counterSelector');
-  return state.counter;
-};
+export const counterSelector = (state) => state.counter;
+//  {
+// console.log('--------------------------');
+// console.log('counterSelector');
+//   return state.counter;
+// };
 
 export const userNameSelector = (state) => {
   // console.log('userNameSelector :>> ');
