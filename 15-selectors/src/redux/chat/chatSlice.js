@@ -2,10 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const chatSlice = createSlice({
   name: 'chat',
-  initialState: [],
+  initialState: { items: [] },
   reducers: {
     setChat(_, { payload }) {
-      return payload;
+      return { items: payload };
+    },
+    deleteMessage(state, { payload }) {
+      // state.items=state.items.filter(el=>el.id!==payload);
+      return {
+        items: state.items.filter(
+          (el) => el.id !== payload
+        ),
+      };
     },
   },
   extraReducers: {},

@@ -36,7 +36,7 @@ export const greetingOfUserSelector = createSelector(
   }
 );
 
-const messagesSelector = (state) => state.chat;
+const messagesSelector = (state) => state.chat.items;
 
 export const allMessagesSelector = createSelector(
   messagesSelector,
